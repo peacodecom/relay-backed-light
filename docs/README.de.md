@@ -1,5 +1,7 @@
 # Relay-backed Light
 
+<img src="../custom_components/relay_backed_light/brand/icon.png" alt="Relay-backed Light Icon" width="128">
+
 Home-Assistant-Custom-Integration für eine Leuchte, deren Stromversorgung ein
 separates Relais schaltet. Domain: `relay_backed_light`.
 
@@ -20,8 +22,12 @@ Lizenz: [MIT](../LICENSE). Weitere Angaben: [Rechte und Pflege](../AUTHORS.md).
 
 Dieser Entwicklungsordner ist keine aktive HA-Konfiguration. Es gibt keine
 automatische Installation oder Migration. Integrationscode und automatisierte
-Tests liegen in diesem Repository. Version 0.1.0 ist eine erste
-Entwicklungsfassung und noch nicht mit physischer Hardware abgenommen.
+Tests liegen in diesem Repository. Version 0.1.0 ist das erste stabile Release.
+Die Installation nach dieser Anleitung und der grundlegende Betrieb mit einem
+physischen Relais und einer physischen Leuchte wurden vom Maintainer bestätigt.
+Das belegt keine Kompatibilität mit jedem Gerät, jeder Home-Assistant-Version
+oder jedem Fehlerfall. Umfang und bekannte Einschränkungen stehen in den
+[Release-Notizen (Englisch)](releases/0.1.0.md).
 Release-Dateien stehen erst nach Veröffentlichung einer Version und
 erfolgreichem Abschluss des Paketierungsworkflows bereit.
 

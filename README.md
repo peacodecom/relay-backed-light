@@ -1,5 +1,7 @@
 # Relay-backed Light
 
+<img src="custom_components/relay_backed_light/brand/icon.png" alt="Relay-backed Light icon" width="128">
+
 A Home Assistant custom integration for a light whose power is controlled by a
 separate relay. Integration domain: `relay_backed_light`.
 
@@ -19,9 +21,13 @@ Source: [peacodecom/relay-backed-light](https://github.com/peacodecom/relay-back
   install integrations, discover Zigbee devices, or change device firmware or
   power-on behavior.
 
-Version 0.1.0 is an initial development implementation, not yet validated on
-physical hardware. The source code and automated tests are maintained in this
-repository. Release assets are available only after a version has been
+Version 0.1.0 is the first stable release. Installation using the documented
+instructions and basic operation with a physical relay and light have been
+confirmed by the maintainer. This does not establish compatibility with every
+device, Home Assistant version, or failure scenario. See the
+[release notes](docs/releases/0.1.0.md) for scope and known limitations.
+The source code and automated tests are maintained in this repository.
+Release assets are available only after a version has been
 published and its packaging workflow has completed successfully. Checking out
 the repository does not install the integration or change an existing setup.
 
