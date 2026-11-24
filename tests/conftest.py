@@ -1,15 +1,16 @@
 """Use real Home Assistant fixtures and enable the local integration."""
 
 import pytest
+from homeassistant.components.light.const import DATA_COMPONENT
+from homeassistant.helpers import entity_registry as er
+from pytest_homeassistant_custom_component.common import MockConfigEntry
+
 from custom_components.relay_backed_light.const import (
     CONF_LIGHT,
     CONF_RELAY,
     DEFAULT_OPTIONS,
     DOMAIN,
 )
-from homeassistant.components.light.const import DATA_COMPONENT
-from homeassistant.helpers import entity_registry as er
-from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 
 @pytest.fixture(autouse=True)

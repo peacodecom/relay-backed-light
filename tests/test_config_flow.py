@@ -4,6 +4,11 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 import voluptuous as vol
+from homeassistant import config_entries
+from homeassistant.data_entry_flow import FlowResultType
+from homeassistant.helpers import entity_registry as er
+from pytest_homeassistant_custom_component.common import MockConfigEntry
+
 from custom_components.relay_backed_light.config_flow import timing_schema
 from custom_components.relay_backed_light.const import (
     CONF_LIGHT,
@@ -11,10 +16,6 @@ from custom_components.relay_backed_light.const import (
     DEFAULT_OPTIONS,
     DOMAIN,
 )
-from homeassistant import config_entries
-from homeassistant.data_entry_flow import FlowResultType
-from homeassistant.helpers import entity_registry as er
-from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 
 @pytest.fixture

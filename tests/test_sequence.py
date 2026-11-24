@@ -5,6 +5,7 @@ from types import SimpleNamespace
 from unittest.mock import AsyncMock
 
 import pytest
+
 from custom_components.relay_backed_light import sequence
 from custom_components.relay_backed_light.sequence import (
     PowerSequence,
