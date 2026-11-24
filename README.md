@@ -27,11 +27,7 @@ the repository does not install the integration or change an existing setup.
 
 ## Installation and setup
 
-Back up Home Assistant first. The repository must be public and a release with
-its `relay_backed_light.zip` asset must be available before following the
-Marketplace/HACS instructions. See [releases](https://github.com/peacodecom/relay-backed-light/releases).
-The project does not need to be listed in the default catalog to be installed
-as a custom repository.
+Back up Home Assistant first.
 
 ### Marketplace: Home Assistant 2026.11 and later
 

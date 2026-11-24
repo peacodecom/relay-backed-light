@@ -27,11 +27,7 @@ erfolgreichem Abschluss des Paketierungsworkflows bereit.
 
 ## Installation
 
-Zuerst ein Backup anlegen. Für Marketplace/HACS muss das Repository öffentlich
-erreichbar sein und ein [Release](https://github.com/peacodecom/relay-backed-light/releases)
-mit dem Anhang `relay_backed_light.zip` bereitstehen. Ein Eintrag im
-Standardkatalog ist für die Installation als benutzerdefiniertes Repository
-nicht erforderlich.
+Zuerst ein Backup anlegen.
 
 ### Marketplace: Home Assistant ab 2026.11
 
