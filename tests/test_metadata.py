@@ -40,8 +40,8 @@ def test_manifest_and_hacs_metadata():
     assert manifest["integration_type"] == "helper"
     assert manifest["iot_class"] == "calculated"
     assert set(manifest["dependencies"]) == {"light", "switch"}
-    assert hacs["filename"] == f"{DOMAIN}.zip"
-    assert hacs["zip_release"] is True
+    assert "filename" not in hacs
+    assert "zip_release" not in hacs
 
 
 def test_public_repository_and_maintainer():

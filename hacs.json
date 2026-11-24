@@ -1,7 +1,5 @@
 {
   "name": "Relay-backed Light",
   "render_readme": true,
-  "homeassistant": "2026.10.0",
-  "zip_release": true,
-  "filename": "relay_backed_light.zip"
+  "homeassistant": "2026.10.0"
 }
