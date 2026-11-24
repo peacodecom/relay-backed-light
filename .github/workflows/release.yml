@@ -1,0 +1,63 @@
+name: Release asset
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: Validate, package, and upload
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: pip
+      - name: Install development requirements
+        run: python -m pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check .
+      - name: Check formatting
+        run: ruff format --check .
+      - name: Test before packaging
+        run: pytest
+      - name: Check public release metadata
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          manifest = json.loads(
+              Path("custom_components/relay_backed_light/manifest.json").read_text()
+          )
+          for key in ("documentation", "issue_tracker"):
+              if "OWNER" in manifest[key]:
+                  raise SystemExit(f"Replace the {key} repository placeholder first")
+          if not manifest["codeowners"]:
+              raise SystemExit("Set real GitHub codeowners before publishing")
+          if os.environ["RELEASE_TAG"].removeprefix("v") != manifest["version"]:
+              raise SystemExit("Release tag and manifest version do not match")
+          PY
+      - name: Package integration contents only
+        working-directory: custom_components/relay_backed_light
+        run: |
+          test -f manifest.json
+          zip -r "$RUNNER_TEMP/relay_backed_light.zip" . \
+            -x '*/__pycache__/*' '__pycache__/*' '*.pyc' '*.pyo'
+      - name: Upload release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          gh release upload "$RELEASE_TAG" \
+            "$RUNNER_TEMP/relay_backed_light.zip" --clobber

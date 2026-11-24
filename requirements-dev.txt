@@ -1,0 +1,3 @@
+# Supplies Home Assistant 2026.10.4; do not add a conflicting direct HA pin.
+pytest-homeassistant-custom-component==0.13.375
+ruff==0.14.5

@@ -1,0 +1,44 @@
+{
+  "title": "Relay-backed Light",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Leuchte mit vorgeschaltetem Relais erstellen",
+        "description": "Verbinde ein Stromversorgungsrelais mit der dahinterliegenden smarten Leuchte. Ausschalten trennt die Stromversorgung sofort. Keine Gruppen wählen, die virtuelle Leuchten dieser Integration enthalten.",
+        "data": {
+          "name": "Name der virtuellen Leuchte",
+          "relay_entity": "Stromversorgungsrelais (Switch oder Light)",
+          "light_entity": "Eigentliche Leuchte"
+        }
+      }
+    },
+    "error": {
+      "empty_name": "Bitte einen Namen eingeben.",
+      "same_entity": "Relais und eigentliche Leuchte müssen unterschiedliche Entitäten sein.",
+      "recursive_entity": "Virtuelle Leuchten dieser Integration dürfen nicht als Eingabe verwendet werden.",
+      "invalid_entity": "Als Relais einen Switch oder ein Light und als eigentliche Leuchte ein Light auswählen.",
+      "entity_not_found": "Eine Entität wurde nicht gefunden. Registrierte, vorübergehend nicht verfügbare Entitäten können ausgewählt werden."
+    },
+    "abort": {
+      "already_configured": "Dieses Relais oder diese Leuchte wird bereits von dieser Integration verwendet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Einschaltverhalten",
+        "description": "Ein bekannter Home-Assistant-Zustand beweist nicht die Erreichbarkeit der Lampe. Nach einem Kaltstart werden Befehle wiederholt; eine Bestätigung des physischen Geräts gibt es nicht. Änderungen laden die virtuelle Leuchte neu und brechen ihren laufenden Befehl ab.",
+        "data": {
+          "boot_delay": "Startwartezeit nach Zuschalten des Relais (Sekunden)",
+          "relay_timeout": "Auf Relaiszustand warten (Sekunden)",
+          "light_timeout": "Auf nutzbaren Leuchtenzustand warten (Sekunden)",
+          "retry_count": "Lichtbefehle insgesamt nach einem Kaltstart",
+          "retry_interval": "Abstand zwischen Lichtbefehlen (Sekunden)"
+        }
+      }
+    },
+    "error": {
+      "whole_number": "Bitte eine ganze Anzahl von Versuchen eingeben."
+    }
+  }
+}

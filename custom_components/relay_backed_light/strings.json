@@ -1,0 +1,44 @@
+{
+  "title": "Relay-backed Light",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Create a relay-backed light",
+        "description": "Combine a power relay with the smart light behind it. Turning off cuts relay power immediately. Do not select groups containing virtual lights from this integration.",
+        "data": {
+          "name": "Virtual light name",
+          "relay_entity": "Power relay (switch or light)",
+          "light_entity": "Source light"
+        }
+      }
+    },
+    "error": {
+      "empty_name": "Enter a name.",
+      "same_entity": "The relay and source light must be different entities.",
+      "recursive_entity": "Virtual lights from this integration cannot be used as inputs.",
+      "invalid_entity": "Choose a switch or light as the relay, and a light as the source.",
+      "entity_not_found": "An entity could not be found. Registered but temporarily unavailable entities can be selected."
+    },
+    "abort": {
+      "already_configured": "This relay or source light is already used by this integration."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Power-on timing",
+        "description": "A known Home Assistant state is not proof that the physical bulb is reachable. Commands are repeated after a cold start; there is no device-level acknowledgment. Changes reload this virtual light and cancel its pending command.",
+        "data": {
+          "boot_delay": "Boot delay after relay power-on (seconds)",
+          "relay_timeout": "Wait for relay state (seconds)",
+          "light_timeout": "Wait for usable source light state (seconds)",
+          "retry_count": "Total source commands after a cold start",
+          "retry_interval": "Interval between source commands (seconds)"
+        }
+      }
+    },
+    "error": {
+      "whole_number": "Enter a whole number of attempts."
+    }
+  }
+}
