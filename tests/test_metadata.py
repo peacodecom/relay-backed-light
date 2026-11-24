@@ -3,6 +3,8 @@
 import json
 from pathlib import Path
 
+from PIL import Image
+
 from custom_components.relay_backed_light.const import DOMAIN
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -76,3 +78,15 @@ def test_publisher_and_copyright_holder_are_documented():
     assert "https://github.com/peacodecom" in authors
     assert "https://peacode.com" in authors
     assert "registered trademark" in authors
+
+
+def test_brand_icons_are_transparent_and_have_expected_sizes():
+    brand = COMPONENT / "brand"
+    for filename, size in (("icon.png", 256), ("icon@2x.png", 512)):
+        path = brand / filename
+        assert path.is_file()
+        with Image.open(path) as image:
+            assert image.format == "PNG"
+            assert image.mode in ("RGBA", "LA")
+            assert image.size == (size, size)
+            assert image.getchannel("A").getextrema()[0] < 255
