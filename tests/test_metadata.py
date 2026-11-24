@@ -38,6 +38,7 @@ def test_manifest_and_hacs_metadata():
     assert manifest["domain"] == DOMAIN
     assert manifest["config_flow"] is True
     assert manifest["integration_type"] == "helper"
+    assert manifest["categories"] == ["helpers", "lighting"]
     assert manifest["iot_class"] == "calculated"
     assert set(manifest["dependencies"]) == {"light", "switch"}
     assert "filename" not in hacs

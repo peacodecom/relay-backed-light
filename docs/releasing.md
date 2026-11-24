@@ -8,6 +8,11 @@
 - Check that repository links are reachable and manifest `codeowners` contains
   `@norman-bauer`. Validate the completed manifest with hassfest and the
   HACS/Marketplace checks.
+- Keep GitHub repository topics set under **About → Edit → Topics**, for example
+  `home-assistant`, `home-assistant-custom-component`, `hacs`, `lighting`, and
+  `relay`. Topics are GitHub repository settings, not manifest or HACS JSON
+  fields. Keep manifest categories aligned with the integration's purpose:
+  `helpers` and `lighting`.
 - Ensure `custom_components/relay_backed_light` contains the complete integration,
   including its manifest, config/options flow, translations, and license handling
   as appropriate. Review the initial implementation before hardware testing.
@@ -47,7 +52,9 @@
    that asset to the published release using `gh` and `GH_TOKEN`.
 6. Inspect the uploaded archive: `manifest.json` must be at its root, with no
    enclosing `custom_components` directory, repository docs, tests, or private
-   configuration. Confirm the asset filename matches `hacs.json`.
+    configuration. Confirm the asset filename matches the release workflow.
+    HACS/Marketplace currently installs from the repository rather than requiring
+    this optional ZIP asset.
 7. Test manual extraction into the integration directory and installation through
    the actual HACS custom repository. Check a clean install and an upgrade with
    a backup; never assume the asset upload proves runtime compatibility.

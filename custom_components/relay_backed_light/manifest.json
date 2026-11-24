@@ -1,6 +1,7 @@
 {
   "domain": "relay_backed_light",
   "name": "Relay-backed Light",
+  "categories": ["helpers", "lighting"],
   "codeowners": ["@norman-bauer"],
   "config_flow": true,
   "dependencies": ["light", "switch"],
